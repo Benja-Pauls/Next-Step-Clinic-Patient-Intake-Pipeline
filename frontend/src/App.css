@@ -21,7 +21,7 @@ html, body {
 
 
 .chat-header {
-  background-color: #003366;
+  background-color: rgb(66, 114, 53);
   color: white;
   padding: 10px;
 }
@@ -57,4 +57,13 @@ html, body {
 
 .chat-input button:hover {
   background-color: #0056b3;
+}
+
+.chat-bubble {
+  background-color: lightgreen;
+  color: black;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  max-width: 80%;
 }
