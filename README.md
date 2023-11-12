@@ -2,7 +2,7 @@
 
 ## Project Setup
 1. Install [node.js](https://nodejs.org/en/download/)
-2. isntall pipenv `pip install pipenv`
+2. Install pipenv `pip install pipenv`
 3. Run `pipenv install`
 5. Run code
     1. Start pipenv shell `pipenv shell` and then `python run.py`
