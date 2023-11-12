@@ -7,7 +7,7 @@
 5. Run code
     1. Start pipenv shell `pipenv shell` and then `python run.py`
     2. Alternatively, `pipenv run python run.py`
-
+<br><br>
 ## To Test React Code
 1. Go to frontend directory
 2.  `npm run build`
