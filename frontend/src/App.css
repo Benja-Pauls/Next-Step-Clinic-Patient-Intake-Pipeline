@@ -11,19 +11,20 @@ html, body {
   width: 100%;
   max-width: 600px;
   margin: auto;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  background-color: white; /* Background color is white */
   display: flex;
   flex-direction: column;
   height: 100vh; /* This will make it cover the full viewport height */
   box-sizing: border-box; /* Includes padding and border in the element's height */
+  border: none; /* Remove the border */
 }
-
 
 .chat-header {
   background-color: rgb(66, 114, 53);
   color: white;
-  padding: 10px;
+  padding: 20px; /* Taller header */
+  display: flex;
+  align-items: center; /* Center items vertically */
 }
 
 .chat-messages {
@@ -50,20 +51,71 @@ html, body {
   padding: 10px 20px;
   border: none;
   border-radius: 4px;
-  background-color: #007bff;
+  background-color: #228855;
   color: white;
   cursor: pointer;
 }
 
 .chat-input button:hover {
-  background-color: #0056b3;
+  background-color: #BC2C1A;
 }
 
 .chat-bubble {
-  background-color: lightgreen;
-  color: black;
   padding: 10px;
   border-radius: 4px;
   margin-bottom: 10px;
   max-width: 80%;
+}
+
+.user {
+  background-color: #00e45f;
+  color: #000000 !important;
+  float: right;
+}
+
+.bot {
+  background-color: #A0D5B0;
+  color: #000000 !important;
+  float: left;
+}
+
+.input-container {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.input-container input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+}
+
+.input-container button {
+  padding: 10px 15px;
+  background-color: #BC2C1A;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Send Button Hover Effect */
+.input-container button:hover {
+  background-color: #F3655F;
+}
+
+.header-image {
+  width: 40px; /* Adjust the width as needed */
+  height: 40px; /* Adjust the height as needed */
+  margin-right: 10px;
+}
+
+.header-text {
+  flex-grow: 1; /* Allow the text to grow and fill the remaining space */
 }

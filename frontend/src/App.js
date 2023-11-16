@@ -1,43 +1,72 @@
 import React, { useState } from 'react';
-import './App.css';
+import './App.css'; // Import your CSS file for styling
 
-function App() {
-  const [inputText, setInputText] = useState('');
+function Chatbot() {
   const [messages, setMessages] = useState([]);
+  const [input, setInput] = useState('');
 
-  const sendMessage = () => {
-    if (inputText.trim() !== '') {
-      setMessages([...messages, inputText]);
-      setInputText('');
+  const sendMessage = async () => {
+    if (!input.trim()) return; // Avoid sending empty messages
+
+    // Add the user's input to messages for immediate UI update
+    setMessages((prevMessages) => [
+      ...prevMessages,
+      { text: input, sender: 'user' },
+    ]);
+
+    try {
+      const response = await fetch('/api/send-message', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message: input }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+
+      // Add the bot's response to messages
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        { text: data.reply, sender: 'bot' },
+      ]);
+    } catch (error) {
+      console.error('There was a problem sending/receiving the message:', error);
     }
+
+    setInput(''); // Clear the input field
   };
 
   return (
-    <div className="App">
-      <div className="chat-container">
-        <div className="chat-header">
-          <h1>Chat</h1>
-        </div>
-        <div className="chat-messages">
-          {messages.map((message, index) => (
-            <div key={index} className="chat-bubble">
-              {message}
-            </div>
-          ))}
-        </div>
-        <div className="chat-input">
-          <input 
-            type="text" 
-            placeholder="Type a message..." 
-            value={inputText} 
-            onChange={(e) => setInputText(e.target.value)}
-            onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
-          />
-          <button onClick={sendMessage}>Send</button>
-        </div>
+    <div className="chat-container">
+      <div className="chat-header">
+        <img src="..\public\logo.png" alt="Logo" className="header-image" />
+      </div>
+      <div className="chat-messages">
+        {messages.map((msg, index) => (
+          <div
+            key={index}
+            className={`chat-bubble ${msg.sender === 'user' ? 'user' : 'bot'}`}
+          >
+            {msg.text}
+          </div>
+        ))}
+      </div>
+      <div className="input-container">
+        <input
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          type="text"
+          onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
+        />
+        <button onClick={sendMessage}>Send</button>
       </div>
     </div>
   );
 }
 
-export default App;
+export default Chatbot;
