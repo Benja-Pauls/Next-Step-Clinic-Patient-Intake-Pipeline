@@ -8,8 +8,7 @@ html, body {
 }
 
 .chat-container {
-  width: 100%;
-  max-width: 600px;
+  width: 70%;
   margin: auto;
   background-color: white; /* Background color is white */
   display: flex;
@@ -111,8 +110,8 @@ html, body {
 }
 
 .header-image {
-  width: 40px; /* Adjust the width as needed */
-  height: 40px; /* Adjust the height as needed */
+  width: 10vh; /* Adjust the width as needed */
+  height: 10vh; /* Adjust the height as needed */
   margin-right: 10px;
 }
 
