@@ -27,7 +27,9 @@ html, body {
 }
 
 .chat-messages {
-  flex-grow: 1;
+  flex-grow: 1; 
+  display: flex;
+  flex-direction: column-reverse;
   padding: 20px;
   overflow-y: auto;
 }
@@ -70,12 +72,14 @@ html, body {
   background-color: #00e45f;
   color: #000000 !important;
   float: right;
+  align-self: flex-end;
 }
 
 .bot {
   background-color: #A0D5B0;
   color: #000000 !important;
   float: left;
+  align-self: flex-start;
 }
 
 .input-container {

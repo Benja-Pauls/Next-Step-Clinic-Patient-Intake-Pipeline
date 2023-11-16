@@ -11,8 +11,8 @@ function Chatbot() {
 
     // Add the user's input to messages for immediate UI update
     setMessages((prevMessages) => [
-      ...prevMessages,
       { text: input, sender: 'user' },
+      ...prevMessages,
     ]);
 
     try {
@@ -32,8 +32,8 @@ function Chatbot() {
 
       // Add the bot's response to messages
       setMessages((prevMessages) => [
-        ...prevMessages,
         { text: data.reply, sender: 'bot' },
+        ...prevMessages,
       ]);
     } catch (error) {
       console.error('There was a problem sending/receiving the message:', error);
@@ -42,12 +42,12 @@ function Chatbot() {
     setInput(''); // Clear the input field
   };
 
-  // Scroll the chat container to the bottom when messages change
+  // Scroll the chat container to the bottom when the component mounts
   useEffect(() => {
     if (chatContainerRef.current) {
       chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
     }
-  }, [messages]);
+  }, []);
 
   return (
     <div className="chat-container">
