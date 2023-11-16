@@ -6,8 +6,11 @@ def run_backend():
     subprocess.Popen(["python", "backend/app.py"])
 
 def run_frontend():
-    # Change to the frontend directory and run npm start
-    os.chdir("frontend")
+    # Change the working directory to the "frontend" directory
+    frontend_dir = os.path.join(os.path.dirname(__file__), 'frontend')
+    os.chdir(frontend_dir)
+
+    # Run npm start from the "frontend" directory
     subprocess.Popen(["npm", "start"])
 
 if __name__ == "__main__":
