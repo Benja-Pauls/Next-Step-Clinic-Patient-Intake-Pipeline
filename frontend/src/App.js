@@ -28,11 +28,19 @@ function Chatbot() {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
+      // Data is the response from the backend
       const data = await response.json();
+      var bot_message;
+
+      if (!data.data_searched) {
+        bot_message = data.reply;
+      } else {
+        bot_message = `On it!\nSearching for "${data.data_searched}" . . .\nHere are the results:\n${data.reply}\n`;
+      }
 
       // Add the bot's response to messages
       setMessages((prevMessages) => [
-        { text: data.reply, sender: 'bot' },
+        { text: bot_message, sender: 'bot' },
         ...prevMessages,
       ]);
     } catch (error) {
@@ -52,7 +60,7 @@ function Chatbot() {
   return (
     <div className="chat-container">
       <div className="chat-header">
-        <img src="logo.png" alt="Header Image" className="header-image" />
+        <img src="logo.png" alt="Next Step Clinic Logo" className="header-image" />
       </div>
       <div className="chat-messages" ref={chatContainerRef}>
         {messages.map((msg, index) => (

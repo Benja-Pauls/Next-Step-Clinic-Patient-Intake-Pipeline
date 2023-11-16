@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+import llm_api 
 
 app = Flask(__name__)
 CORS(app)
@@ -7,17 +8,33 @@ CORS(app)
 @app.route('/api/send-message', methods=['POST'])
 def send_message():
     if request.method == 'POST':
-        data = request.json  # Get the JSON data sent from the front-end
-        user_message = data.get('message')  # Extract the user's message from the JSON data
-        print(user_message)
-        # Process the user's message (You can perform any processing or logic here)
-        # For now, let's just echo back the user's message as a response
-        bot_response = f'You said: {user_message}'
+        data = request.json  
+        print()
+        print("User message: ")
+        print(data)
+        print()
+
+        user_message = data['message']
+        bot_response = user_message
+
+        # TODO: Parse and call api 
 
         # Return the bot's response as JSON
-        return jsonify({'reply': bot_response})
+        return construct_json(bot_response, 'therapist')
     else:
         return jsonify({'error': 'Invalid request'})
+    
+
+def construct_json(response, data_searched):
+    json_response = {
+        "reply": response,
+        "data_searched": data_searched,
+    }
+    print()
+    print("Bot response: ")
+    print(json_response)
+    print()
+    return json_response
 
 if __name__ == '__main__':
     app.run(debug=True)
