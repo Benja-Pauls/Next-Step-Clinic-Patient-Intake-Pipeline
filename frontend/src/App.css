@@ -1,29 +1,39 @@
 html, body {
   height: 100%;
   margin: 0; /* Removes the default margin */
+  background-color: #181818;
 }
 
 #root, .App {
   height: 100%;
+  background-color: #181818;
+  align-content: center;
 }
 
 .chat-container {
-  width: 70%;
-  margin: auto;
-  background-color: white; /* Background color is white */
+  width: 80%;
+  background-color: #404040; /* Background color is gray */
+  border: 3px solid #b3b3b3;
   display: flex;
   flex-direction: column;
-  height: 100vh; /* This will make it cover the full viewport height */
-  box-sizing: border-box; /* Includes padding and border in the element's height */
-  border: none; /* Remove the border */
+  height: 90%; /* This will make it cover the full viewport height */
+  border-radius: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .chat-header {
-  background-color: #55BB44;
+  background-color: #439335;
+  border: 3px solid #181818;
   color: white;
   padding: 20px; /* Taller header */
   display: flex;
   align-items: center; /* Center items vertically */
+  border-radius: 20px;
+  margin: 10px;
 }
 
 .chat-messages {
@@ -58,7 +68,7 @@ html, body {
 }
 
 .chat-input button:hover {
-  background-color: #BC2C1A;
+  background-color: rgb(26, 188, 37);
 }
 
 .chat-bubble {
@@ -86,28 +96,28 @@ html, body {
 }
 
 .input-container {
-  margin-top: 10px;
+  margin: 10px;
   display: flex;
   gap: 10px;
 }
 
 .input-container input {
   flex: 1;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  margin-bottom: 5px;
+  border: 3px solid #181818;
+  border-radius: 10px;
   font-size: 16px;
   outline: none;
+  background-color: #B3b3b3;
 }
 
 .input-container button {
   padding: 10px 15px;
-  margin-bottom: 15px;
-  background-color: #BC2C1A;
+  margin-bottom: 5px;
+  background-color: #016f09;
+  border: 3px solid #181818;
   color: #fff;
-  border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   font-size: 16px;
   cursor: pointer;
   outline: none;
@@ -115,12 +125,12 @@ html, body {
 
 /* Send Button Hover Effect */
 .input-container button:hover {
-  background-color: #F3655F;
+  background-color: #2bbb12;
 }
 
 .header-image {
-  width: 10vh; /* Adjust the width as needed */
-  height: 10vh; /* Adjust the height as needed */
+  width: 12vh; /* Adjust the width as needed */
+  height: 12vh; /* Adjust the height as needed */
   margin-right: 10px;
 }
 

@@ -6,8 +6,10 @@ const AnimatedTextDisplay = (props) => {
     const [index, setIndex] = useState(0);
     const [text, setText] = useState("");
 
-    console.log(props)
-    console.log(props.sender === 'bot');
+    //For Texting Purposes
+    //console.log(props)
+    //console.log(props.sender === 'bot');
+
     // Use effect to get notified whenever values change or the component is mounted
     useEffect(() => {
 
@@ -31,7 +33,7 @@ const AnimatedTextDisplay = (props) => {
             // Clear the timeout after the component mounts or when intermediate dependencies change
             return () => clearTimeout(timeout);
         }
-    });
+    }, [index, text]);
 
     // render the text
     return <span>{text}</span>;
