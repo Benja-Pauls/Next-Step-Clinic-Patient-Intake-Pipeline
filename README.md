@@ -10,4 +10,4 @@
 
 ## To Start Backend
 1. Go to backend directory 
-2. `flask run`
+2. `flask run -p 5001`

@@ -33,7 +33,17 @@ function Chatbot() {
 
       const data = await response.json();
       //set timeout for every .5 seconds and then adjust the state (look at useEffect instead)
+
+      var data_searched_message = '';
       
+      // If the bot searched for data, add 'Searching for <data>' to messages
+      if (data.data_searched) {
+        data_searched_message = "Searching for " + data.data_searched + "...";
+        setMessages((prevMessages) => [
+          ...prevMessages,
+          { text: data_searched_message, sender: 'bot' },
+        ]);
+      }
     
       // Add the bot's response to messages
       setMessages((prevMessages) => [
