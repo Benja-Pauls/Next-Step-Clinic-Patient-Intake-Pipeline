@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './App.css'; // Import your CSS file for styling
-import _ from 'lodash'
 import AnimatedTextDisplay from './AnimatedText.js';
 
 
@@ -34,15 +33,12 @@ function Chatbot() {
 
       const data = await response.json();
       //set timeout for every .5 seconds and then adjust the state (look at useEffect instead)
-
-      const words = _.split(data.reply, " ");
       
-      //const currentPreviousMessages = prevMessages;
     
       // Add the bot's response to messages
       setMessages((prevMessages) => [
         ...prevMessages,
-        { text: input, sender: 'bot' },
+        { text: data.reply, sender: 'bot' },
       ]);
     } catch (error) {
       console.error('There was a problem sending/receiving the message:', error);
@@ -68,20 +64,12 @@ function Chatbot() {
       <div className="input-container">
         <input 
           id = 'textInput' 
-          onKeyDown={(event) => { if(event.code === 'Enter'){sendMessage();}}} //When enter is pressed the message is 'submitted'
+          onKeyDown={(event) => { if(event.code === 'Enter'){sendMessage();}}} //When enter is pressed the message
           value={input} onChange={(e) => setInput(e.target.value)} type="text"/>
         <button onClick={sendMessage}>Send</button>
       </div>
     </div>
   );
-
-  const textInput = document.getElementById("textInput");
-
-  textInput.addEventListener("keydown", (event) => {
-    if(event.code === 'ENTER'){
-      sendMessage();
-    }
-  });
 
 }
 
