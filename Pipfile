@@ -5,6 +5,8 @@ name = "pypi"
 
 [packages]
 fastapi = "*"
+flask = "*"
+flask-cors = "*"
 
 [dev-packages]
 
