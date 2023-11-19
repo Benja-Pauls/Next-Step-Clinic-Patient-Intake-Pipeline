@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, session
 from flask_cors import CORS
 import llm_api 
 
@@ -15,12 +15,13 @@ def send_message():
         print()
 
         user_message = data['message']
-        bot_response = user_message
+        bot_response = 'Default Message'
 
         # TODO: Parse and call api 
+        # TODO: llm_api.py (from ROSIE)
 
         # Return the bot's response as JSON
-        return construct_json(bot_response, 'therapist')
+        return construct_json(bot_response, '')
     else:
         return jsonify({'error': 'Invalid request'})
     
@@ -30,6 +31,7 @@ def construct_json(response, data_searched):
         "reply": response,
         "data_searched": data_searched,
     }
+
     print()
     print("Bot response: ")
     print(json_response)

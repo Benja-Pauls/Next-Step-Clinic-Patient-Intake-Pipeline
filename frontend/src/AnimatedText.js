@@ -20,7 +20,7 @@ const AnimatedTextDisplay = (props) => {
             const timeout = setTimeout(() => {
                 setText(prevText => prevText + props.text[index]);
                 setIndex(prevIndex => prevIndex + 1);
-            }, 100);
+            }, 10);
 
             // Clear the timeout after the component mounts or when intermediate dependencies change
             return () => clearTimeout(timeout);

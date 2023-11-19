@@ -9,6 +9,8 @@ function Chatbot() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
 
+  const [index, setIndex] = useState(0);
+
   const sendMessage = async () => {
     if (!input.trim()) return; // Avoid sending empty messages
 
@@ -24,12 +26,15 @@ function Chatbot() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ message: input }),
+        body: JSON.stringify({ message: input, count: index}),
       });
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
+
+      // Update the index +1
+      setIndex(prevIndex => prevIndex + 1);
 
       const data = await response.json();
       //set timeout for every .5 seconds and then adjust the state (look at useEffect instead)
