@@ -4,7 +4,7 @@ This is the repository for all Large Language Model (LLM) experiments with the "
 
 Llama.cpp was chosen as a demonstrative experiment due to its small size (allowing it to be run on many consumer-grade hardware), Llama's proficiency in chat-bot related tasks, and its small size due to its implementation in C/C++ without the use of external ML/Tensor libraries. Lessoning the amount of external libraries used also increases the security of this system.
 
-This solution has been proven to work using a basic T4 ("teaching") node on the [MSOE ROSIE Supercomputer](https://www.msoe.edu/about-msoe/news/details/meet-rosie/).
+This solution has been proven to work using a basic T4 ("teaching") node on the [MSOE ROSIE Supercomputer](https://www.msoe.edu/about-msoe/news/details/meet-rosie/). It also won first place at [HacksGiving 2023](https://www.msoe.edu/about-msoe/news/details/inaugural-hacksgiving-hackathon-uses-generative-a-i-to-support-nonprofit-clinic/).
 
 A diagram of the full solution, included in this GitHub repository, is outlined below:<br/>
 ![image](https://github.com/Benja-Pauls/Next-Step-Clinic-Patient-Intake-Pipeline/assets/73416124/a3bc00f8-c949-49ea-a5cc-7b0c88a7060a)
